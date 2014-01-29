@@ -1,0 +1,29 @@
+@(obj: com.mongodb.DBObject)
+
+@import com.mongodb.casbah.Imports._
+
+<h1>Very basic write to MongoDB database</h1>
+
+<p>Hopefully this object has been written to database <code>sampleapp</code>, collection <code>testcoll1</code>:
+
+<dl style="background: #ccc">
+	<dt>_id</dt>
+	<dd>@obj.getAs[String]("_id")</dd>
+
+	<dt>foo</dt>
+	<dd>@obj.getAs[String]("foo")</dd>
+
+	<dt>x</dt>
+	<dd>@obj.getAs[String]("x")</dd>
+
+	<dt>pie</dt>
+	<dd>@obj.getAs[String]("pie")</dd>
+
+	<dt>spam</dt>
+	<dd>@obj.getAs[String]("spam")</dd>
+
+	<dt>created</dt>
+	<dd>@obj.getAs[String]("created")</dd>
+</dl>
+
+<p>The field <code>_id</code> should have an automatically created value.</p>
