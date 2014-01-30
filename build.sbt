@@ -1,4 +1,4 @@
-name := "play-mongodb-sample"
+name := "play-samples"
 
 version := "1.0-SNAPSHOT"
 

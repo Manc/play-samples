@@ -10,7 +10,7 @@ import com.mongodb.casbah.Imports._
 import java.util.Date
 
 
-object BasicDB extends Controller {
+object CasbahSamples extends Controller {
 
 	def write = Action {
 		// Connect to default - localhost, 27017
@@ -43,7 +43,7 @@ object BasicDB extends Controller {
 		// Insert the object
 		mongoColl += newObj
 
-		Ok(views.html.basicdb.write(newObj))
+		Ok(views.html.casbahsamples.write(newObj))
 	}
 
 }
