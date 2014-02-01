@@ -1,0 +1,20 @@
+@(count: Long, list: List[Any])
+
+@import com.mongodb.casbah.Imports._
+
+<h1>Very basic read from MongoDB database</h1>
+
+<p>Here we read all documents from database <code>sampleapp</code>, collection <code>testcoll1</code>.</p>
+
+
+<h2>Total number of documents in collection:</h2>
+<p>@count</p>
+
+
+<h2>Query results</h2>
+
+<h3>Number of query results:</h3>
+<p>@list.length</p>
+
+<h3>Results as <code>List</code>:</h3>
+<code>@list</code>
