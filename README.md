@@ -27,6 +27,8 @@ As said before, I will try to use comments in the code as much as possible. An i
 
 Basically you should have Play Framework and MongoDB installed on your local machine. There are a lot of tutorials that explain how to do that. Personally, I develop on a Mac and installed everything with [Homebrew](http://brew.sh/) – it's great and makes the installation a lot things very easy. I've not tried it yet myself, but you should just download/pull the content of this repository, go to its folder and run `play`, then enter `run` and open `http://localhost:9000` in your browser. Then you should see the index page with a list or samples available.
 
+> Make sure to initialise the submodules, too. You should have at least a folder `vendor` containing Twitter Bootstrap (maybe more at some point in the future). This directory is required for the app to compile, because we include some of the LESS files from `app/assets/stylesheets/main.less`.
+
 
 ## Versions Currently Used
 

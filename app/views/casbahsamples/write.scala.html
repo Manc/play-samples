@@ -2,28 +2,32 @@
 
 @import com.mongodb.casbah.Imports._
 
-<h1>Very basic write to MongoDB database</h1>
+@main("Write to MongoDB") {
 
-<p>Hopefully this object has been written to database <code>sampleapp</code>, collection <code>testcoll1</code>:
+	<h1>Very basic write to MongoDB database</h1>
 
-<dl style="background: #ccc">
-	<dt>_id</dt>
-	<dd>@obj.getAs[String]("_id")</dd>
+	<p>Hopefully this object has been written to database <code>sampleapp</code>, collection <code>testcoll1</code>:
 
-	<dt>foo</dt>
-	<dd>@obj.getAs[String]("foo")</dd>
+	<dl style="background: #ccc">
+		<dt>_id</dt>
+		<dd>@obj.getAs[String]("_id")</dd>
 
-	<dt>x</dt>
-	<dd>@obj.getAs[String]("x")</dd>
+		<dt>foo</dt>
+		<dd>@obj.getAs[String]("foo")</dd>
 
-	<dt>pie</dt>
-	<dd>@obj.getAs[String]("pie")</dd>
+		<dt>x</dt>
+		<dd>@obj.getAs[String]("x")</dd>
 
-	<dt>spam</dt>
-	<dd>@obj.getAs[String]("spam")</dd>
+		<dt>pie</dt>
+		<dd>@obj.getAs[String]("pie")</dd>
 
-	<dt>created</dt>
-	<dd>@obj.getAs[String]("created")</dd>
-</dl>
+		<dt>spam</dt>
+		<dd>@obj.getAs[String]("spam")</dd>
 
-<p>The field <code>_id</code> should have an automatically created value.</p>
+		<dt>created</dt>
+		<dd>@obj.getAs[String]("created")</dd>
+	</dl>
+
+	<p>The field <code>_id</code> should have an automatically created value.</p>
+
+}
