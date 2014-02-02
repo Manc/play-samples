@@ -1,10 +1,4 @@
-@(count: Long, list: List[BasicDBObject])
-
-@import com.mongodb.BasicDBObject
-
-@* also tried:
-@import com.mongodb.casbah.Imports._
-*@
+@(count: Long, list: List[com.mongodb.casbah.Imports.DBObject])
 
 <h1>Very basic read from MongoDB database</h1>
 
@@ -20,31 +14,30 @@
 <h3>Number of query results:</h3>
 <p>@list.length</p>
 
-<h3>Results as <code>List</code>:</h3>
+<h3>Results as <code>List[com.mongodb.casbah.Imports.DBObject]</code>:</h3>
 <code>@list</code>
 
-<h4>List:</h4>
+<h4>Iterate over the list:</h4>
 @import java.math.BigInteger; var i = 0;
 @for(doc <- list) {
 	@{i += 1; i}:<br>
-	@*
-	doc is of type BasicDBObject as I found out doing this:
-	@doc.asInstanceOf[AnyRef].getClass.getSimpleName
-	*@
-	@doc
-
-@* The next line results in a compilation error: value filter is not a member of Any *@
-@defining(doc.filter(_.isInstanceOf[BasicDBObject]).map(_.asInstanceOf[BasicDBObject])) { docX =>
-	@docX.asInstanceOf[AnyRef].getClass.getSimpleName
-}
-
-	<br><br>
+	As JSON string: @doc<br>
+	Accessing individual attributes:<br><br>
 	<dl style="background: #ccc">
 		<dt>_id</dt>
-
-		@* doc will be of type BasicDBObject *@
-		@* <dd>@doc.getString("pie")</dd> *@
-		@* <dd>@docX.getString("pie")</dd> *@
+		<dd>@doc.get("_id")</dd>
+		<dt>foo</dt>
+		<dd>@doc.get("foo")</dd>
+		<dt>x</dt>
+		<dd>@doc.get("x")</dd>
+		<dt>pie</dt>
+		<dd>@doc.get("pie")</dd>
+		<dt>spam</dt>
+		<dd>@doc.get("spam")</dd>
+		<dt>created</dt>
+		<dd>@doc.get("created")</dd>
+		<dt>otherkey</dt>
+		<dd>@doc.get("otherkey")</dd>
 	</dl>
 	<br><br>
 }
