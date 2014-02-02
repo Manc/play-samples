@@ -12,14 +12,14 @@ import java.util.Date
 
 object CasbahSamples extends Controller {
 
-  /**
-   * Create document and write it to MongoDB.
-   */
+	/**
+	 * Create document and write it to MongoDB.
+	 */
 	def write = Action {
 		// Connect to MongoDB, database and collection
-    val mongoClient = MongoClient("localhost", 27017)
-    val db = mongoClient("sampleapp")
-    val coll = db("testcoll1")
+		val mongoClient = MongoClient("localhost", 27017)
+		val db = mongoClient("sampleapp")
+		val coll = db("testcoll1")
 
 		/**
 		 * The object we intend to write.
@@ -36,32 +36,32 @@ object CasbahSamples extends Controller {
 		)
 
 		// Insert the object
-    coll.insert(newObj)
+		coll.insert(newObj)
 
 		Ok(views.html.casbahsamples.write(newObj))
 	}
 
 
-  /**
-   * Read from MongoDB and print results in view.
-   * This example is pretty poor yet, because the results are
-   * converted to a list which is simply printed as one object
-   * which results in a long and ugly JSON string.
-   * Goal: Print results in a HTML table or definition list...
-   */
-  def read = Action {
-    val mongoClient = MongoClient("localhost", 27017)
-    val db = mongoClient("sampleapp")
-    val coll = db("testcoll1")
+	/**
+	 * Read from MongoDB and print results in view.
+	 * This example is pretty poor yet, because the results are
+	 * converted to a list which is simply printed as one object
+	 * which results in a long and ugly JSON string.
+	 * Goal: Print results in a HTML table or definition list...
+	 */
+	def read = Action {
+		val mongoClient = MongoClient("localhost", 27017)
+		val db = mongoClient("sampleapp")
+		val coll = db("testcoll1")
 
-    // First query: count number of documents in collection
-    val count: Long = coll.count()
+		// First query: count number of documents in collection
+		val count: Long = coll.count()
 
-    // Second query: get all documents
-    val docs = coll.find() // Type: coll.CursorType
-    val list = docs.toList
+		// Second query: get all documents
+		val docs = coll.find() // Type: coll.CursorType
+		val list = docs.toList
 
-    Ok(views.html.casbahsamples.read(count, list))
-  }
+		Ok(views.html.casbahsamples.read(count, list))
+	}
 
 }
