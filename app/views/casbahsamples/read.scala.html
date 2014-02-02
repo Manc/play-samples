@@ -1,6 +1,11 @@
 @(count: Long, list: List[Any])
 
+@import com.mongodb.BasicDBObject
+
+@*
 @import com.mongodb.casbah.Imports._
+@import com.mongodb.BasicDBObject
+*@
 
 <h1>Very basic read from MongoDB database</h1>
 
@@ -18,3 +23,29 @@
 
 <h3>Results as <code>List</code>:</h3>
 <code>@list</code>
+
+<h4>List:</h4>
+@import java.math.BigInteger; var i = 0;
+@for(doc <- list) {
+	@{i += 1; i}:<br>
+	@*
+	doc is of type BasicDBObject as I found out doing this:
+	@doc.asInstanceOf[AnyRef].getClass.getSimpleName
+	*@
+	@doc
+
+@* The next line results in a compilation error: value filter is not a member of Any *@
+@defining(doc.filter(_.isInstanceOf[BasicDBObject]).map(_.asInstanceOf[BasicDBObject])) { docX =>
+	@docX.asInstanceOf[AnyRef].getClass.getSimpleName
+}
+
+	<br><br>
+	<dl style="background: #ccc">
+		<dt>_id</dt>
+
+		@* doc will be of type BasicDBObject *@
+		@* <dd>@doc.getString("pie")</dd> *@
+		@* <dd>@docX.getString("pie")</dd> *@
+	</dl>
+	<br><br>
+}
