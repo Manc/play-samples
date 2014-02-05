@@ -9,5 +9,9 @@ GET     /                           controllers.Application.index
 GET     /casbah/write               controllers.CasbahSamples.write
 GET     /casbah/read                controllers.CasbahSamples.read
 
+# Form sampes
+GET     /form/form1                 controllers.FormSamples.getform1
+POST    /form/form1                 controllers.FormSamples.postform1
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
