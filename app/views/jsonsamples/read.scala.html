@@ -1,0 +1,67 @@
+@(json: play.api.libs.json.JsValue)
+
+@import play.api.libs.json._
+
+@main("JSON Read") {
+
+	<h1>JSON Read</h1>
+
+	<p>This sample reads a JSON file containing some book categories and a few books inside these categories.</p>
+	<!-- THIS WORKS -->
+	<p>This link demonstrates a route with parameter: <a href="@routes.JsonSamples.bookdetails("12345678")">Link to book 12345678</a></p>
+
+	@json.as[List[JsObject]].map { section =>
+		<table>
+			<caption>
+				<h2>@{(section \ "title").as[String]}</h2>
+				<p>@{(section \ "description").as[String]}</p>
+			</caption>
+			<thead>
+				<tr>
+					<th>Book Title</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+		@{(section \ "entries").as[List[JsObject]].map { entry =>
+				<tr>
+					<td>
+						<!-- By the way... I can't even use @* *@ comments here. Why? -->
+
+						<!-- I DON'T KNOW WHAT TO PUT INTO HREF, NOTHING WORKS, SEE BELOW -->
+						<a href="#">
+						 	{(entry \ "title").as[String]}
+						</a>
+
+						<!-- THIS WORKS -->
+						(ID: {(entry \ "id").as[String]})
+					</td>
+					<td>
+						<p>{(entry \ "description").as[String]}</p>
+						<p>Order link: {(entry \ "link").as[String]}</p>
+					</td>
+				</tr>
+		}}
+			</tbody>
+		</table>
+	}
+
+}
+@*
+						Attempt 1:
+						<a href="@routes.JsonSamples.bookdetails((entry \ "id").as[String])">
+						...Compilation error: unclosed multi-line string literal
+
+						Attempt 2:
+						<a href="@(routes.JsonSamples.bookdetails((entry \ "id").as[String]))">
+						...Compilation error: in XML literal: whitespace expected
+
+						Attempt 3:
+						<a href="@{routes.JsonSamples.bookdetails((entry \ "id").as[String])}">
+						...Compilation error: in XML literal: whitespace expected
+
+						Attempt 4:
+						<a href="{routes.JsonSamples.bookdetails((entry \ "id").as[String])}">
+						...Compilation error: in XML literal: whitespace expected
+
+*@

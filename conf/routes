@@ -13,5 +13,9 @@ GET     /casbah/read                controllers.CasbahSamples.read
 GET     /form/form1                 controllers.FormSamples.getform1
 POST    /form/form1                 controllers.FormSamples.postform1
 
+# JSON samples
+GET     /json/booklist              controllers.JsonSamples.booklist
+GET     /json/bookdetails/:id       controllers.JsonSamples.bookdetails(id: String)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

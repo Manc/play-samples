@@ -1,0 +1,44 @@
+[
+	{
+		"title": "Programming",
+		"description": "A list of books about programming.",
+		"entries": [
+			{
+				"id": "1617290793",
+				"title": "Play for Scala: Covers Play 2",
+				"link": "http://www.amazon.co.uk/Play-Scala-Covers-2/dp/1617290793/",
+				"description": "Play for Scala shows you how to build Scala-based web applications using the Play 2 framework."
+			},
+			{
+				"id": "1617290904",
+				"title": "Play for Java: Covers Play 2",
+				"link": "http://www.amazon.co.uk/Play-Java-Covers-2/dp/1617290904/",
+				"description": "Java developers have many remarkably-similar choices for building web applications. Play is a breath of fresh air, blending the power of Scala's strong type system and functional programming model with a rock-solid Java API that makes it easy to hit the ground running."
+			}
+		]
+	},
+	{
+		"title": "Music",
+		"description": "A random selection of books about music.",
+		"entries": [
+			{
+				"id": "0091948886",
+				"title": "Ziggyology",
+				"link": "http://www.amazon.co.uk/gp/product/0091948886/",
+				"description": "It was the greatest invention in the history of pop music - the rock god who came from the stars - which struck a young David Bowie like a lightning bolt from the heavens."
+			},
+			{
+				"id": "1848494017",
+				"title": "Piano Examination Pieces 2013 & 2014, ABRSM, Grade 1",
+				"link": "http://www.amazon.co.uk/Piano-Examination-Pieces-ABRSM-Grade/dp/1848494017/",
+				"description": "Piano Exam Pieces contains the printed music for nine pieces from ABRSM's 2013 & 2014 Grade 1 Piano syllabus. Includes three pieces from each of Lists A, B and C providing appealing and varied repertoire from which to create a balanced programme for the exam or a concert. Also contains helpful information about the pieces and the exam. All of the pieces on the Grade 1 syllabus have been recorded for ABRSM by leading professional pianists."
+			},
+			{
+				"id": "0141394811",
+				"title": "Morrissey – Autobiography",
+				"link": "http://www.amazon.co.uk/Autobiography-Morrissey/dp/0141394811/",
+				"description": "Steven Patrick Morrissey was born in Manchester on May 22nd 1959. Singer-songwriter and co-founder of the Smiths (1982-1987), Morrissey has been a solo artist for twenty-six years, during which time he has had three number 1 albums in England in three different decades."
+			}
+		]
+	}
+]
