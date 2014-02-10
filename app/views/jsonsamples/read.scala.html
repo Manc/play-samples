@@ -1,0 +1,41 @@
+@(json: play.api.libs.json.JsValue)
+
+@import play.api.libs.json._
+
+@main("JSON Read") {
+
+	<h1>JSON Read</h1>
+
+	<p>This sample reads a JSON file containing some book categories and a few books inside these categories.</p>
+	<!-- THIS WORKS -->
+	<p>This link demonstrates a route with parameter: <a href="@routes.JsonSamples.bookdetails("12345678")">Link to book 12345678</a></p>
+
+	@json.as[List[JsObject]].map { section =>
+		<table>
+			<caption>
+				<h2>@{(section \ "title").as[String]}</h2>
+				<p>@{(section \ "description").as[String]}</p>
+			</caption>
+			<thead>
+				<tr>
+					<th>Book Title</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+		@for(entry <- (section \ "entries").as[List[JsObject]]) {
+				<tr>
+					<td>
+						<a href="@routes.JsonSamples.bookdetails((entry \ "id").as[String])">@{(entry \ "title").as[String]}</a>
+					</td>
+					<td>
+						<p>@{(entry \ "description").as[String]}</p>
+						<p>Order link: @{(entry \ "link").as[String]}</p>
+					</td>
+				</tr>
+		}
+			</tbody>
+		</table>
+	}
+
+}
